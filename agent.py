@@ -26,9 +26,9 @@ def create_agent():
 
     #Model dùng Ollama local
     llm = ChatOllama(
-        model="mistral",
+        model="your model",
         temperature=0.0,
-        base_url="http://localhost:11434"
+        base_url="your url"
     )
 
     tools = [sql_tool]
