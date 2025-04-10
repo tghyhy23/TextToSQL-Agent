@@ -1,0 +1,6 @@
+langchain
+huggingface_hub
+sqlalchemy
+python-dotenv
+psycopg2-binary
+langchain-community
