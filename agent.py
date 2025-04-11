@@ -11,17 +11,17 @@ def create_agent():
     schema = get_db_schema()
 
     prompt_template = PromptTemplate.from_template(f"""
-    Bạn là trợ lý AI chuyên thực thi truy vấn SQL dựa trên câu hỏi của người dùng.
+    You are an AI assistant that executes SQL queries based on user questions.
 
-    Dưới đây là cấu trúc CSDL thực tế:
+    Here is the actual database structure:
 
     {schema}
 
-    - KHÔNG được tạo bảng mới
-    - Chỉ được truy vấn các bảng đã tồn tại
-    - Trả kết quả ngắn gọn bằng tiếng Việt
+    - DO NOT create new tables
+    - Only query existing tables
+    - Returns concise results
 
-    Câu hỏi: {{input}}
+    Question: {{input}}
     """)
 
     #Model dùng Ollama local

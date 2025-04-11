@@ -11,7 +11,7 @@ def run_query(query: str) -> str:
         result = db.run(query)
         return str(result)
     except Exception as e:
-        return f"Lỗi khi chạy truy vấn: {e}"
+        return f"Error: {e}"
 
 def get_db_schema() -> str:
     return db.get_table_info()
@@ -20,7 +20,7 @@ sql_tool = Tool(
     name="SQL Query Executor",
     func=run_query,
     description="""
-    Dùng để thực thi truy vấn SQL vào bảng 'testing' trong PostgreSQL thật.
-    Không được tạo bảng mới. Chỉ được truy vấn dữ liệu có sẵn.
+    Used to execute SQL queries on the table in real PostgreSQL.
+    Do not create new tables. Only query existing data.
     """
 )
