@@ -12,7 +12,7 @@ load_dotenv()
 def generate_sql(user_input):
     llm_groq = ChatGroq(
         temperature=0.0,
-        model="llama3-70b-81922",
+        model="llama3-70b-8192",
         api_key=os.getenv("GROQ_API_KEY")
     )
     chain = sql_prompt_template | llm_groq
@@ -27,7 +27,7 @@ def create_agent(sql_query, user_question, sql_result):
     )
 
     llm = ChatOllama(
-        model="mistral",
+        model="gemma3:12b",
         temperature=0.0,
         base_url="http://localhost:11434/"
     )
@@ -41,3 +41,6 @@ def create_agent(sql_query, user_question, sql_result):
         handle_parsing_errors=True
     )
     return agent
+
+
+
